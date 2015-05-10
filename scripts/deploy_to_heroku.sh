@@ -6,13 +6,14 @@ set -e
 CIRCLE=$1
 
 DEPLOY_DATE=`date "+%FT%T%z"`
+SECRET=$(openssl rand -base64 58 | tr '\n' '_')
 
 heroku config:set --app=socialjusticebingo \
 NEW_RELIC_APP_NAME='socialjusticebingo' \
 ADMIN_EMAIL="socialjusticebingo@gmail.com" \
 ADMIN_NAME="socialjusticebingo" \
 DJANGO_SETTINGS_MODULE=socialjusticebingo.settings.production \
-DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY \
+DJANGO_SECRET_KEY="$SECRET" \
 DEPLOY_DATE="$DEPLOY_DATE" \
 > /dev/null
 
