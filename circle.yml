@@ -10,8 +10,8 @@ dependencies:
 test:
     override:
         - flake8
-        - coverage run manage.py test --settings=underquoted.settings.development
-        - DJANGO_SETTINGS_MODULE=underquoted.settings.development PYTHONPATH=. coveralls
+        - coverage run manage.py test --settings=socialjusticebingo.settings.development
+        - DJANGO_SETTINGS_MODULE=socialjusticebingo.settings.development PYTHONPATH=. coveralls
 
 deployment:
     production:

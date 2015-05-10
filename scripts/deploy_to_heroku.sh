@@ -7,22 +7,22 @@ CIRCLE=$1
 
 DEPLOY_DATE=`date "+%FT%T%z"`
 
-heroku config:set --app=underquoted \
-NEW_RELIC_APP_NAME='underquoted' \
-ADMIN_EMAIL="the.underquoted@gmail.com" \
-ADMIN_NAME="the.underquoted" \
-DJANGO_SETTINGS_MODULE=underquoted.settings.production \
+heroku config:set --app=socialjusticebingo \
+NEW_RELIC_APP_NAME='socialjusticebingo' \
+ADMIN_EMAIL="socialjusticebingo@gmail.com" \
+ADMIN_NAME="socialjusticebingo" \
+DJANGO_SETTINGS_MODULE=socialjusticebingo.settings.production \
 DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY \
 DEPLOY_DATE="$DEPLOY_DATE" \
 > /dev/null
 
 if [ $CIRCLE ]
 then
-    git push git@heroku.com:underquoted.git $CIRCLE_SHA1:refs/heads/master
+    git push git@heroku.com:socialjusticebingo.git $CIRCLE_SHA1:refs/heads/master
 else
     git push heroku master
 fi
 
-heroku run python manage.py syncdb --noinput --app=underquoted
-heroku run python manage.py migrate --noinput --app=underquoted
-heroku run python manage.py update_search_field quotations --app=underquoted
+heroku run python manage.py syncdb --noinput --app=socialjusticebingo
+heroku run python manage.py migrate --noinput --app=socialjusticebingo
+heroku run python manage.py update_search_field bingo --app=socialjusticebingo

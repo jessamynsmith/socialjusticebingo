@@ -27,7 +27,7 @@ class Author(models.Model):
 
 
 class Quotation(models.Model):
-    author = models.ForeignKey(Author, related_name='underquoted')
+    author = models.ForeignKey(Author, related_name='socialjusticebingo')
     text = models.CharField(max_length=500, unique=True)
 
     search_index = VectorField()

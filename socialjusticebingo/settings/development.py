@@ -1,4 +1,4 @@
-from underquoted.settings.common import *
+from socialjusticebingo.settings.common import *
 
 SECRET_KEY = 'oe3-zo6yeb34h*ktvana^ejbb(^du)613z+tl8@)psqkr+k7sd'
 
@@ -8,7 +8,7 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'underquoted',
+        'NAME': 'socialjusticebingo',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -16,10 +16,10 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = '/tmp/underquoted/static'
+STATIC_ROOT = '/tmp/socialjusticebingo/static'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-MEDIA_ROOT = '/tmp/underquoted/media'
+MEDIA_ROOT = '/tmp/socialjusticebingo/media'
 
 ALLOWED_HOSTS = ['*']
 SSLIFY_DISABLE = True

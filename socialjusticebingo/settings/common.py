@@ -1,4 +1,4 @@
-# Django settings for underquoted project.
+# Django settings for socialjusticebingo project.
 import dateutil.parser
 import os
 
@@ -74,12 +74,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'underquoted.urls'
+ROOT_URLCONF = 'socialjusticebingo.urls'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'underquoted.wsgi.application'
+WSGI_APPLICATION = 'socialjusticebingo.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -100,7 +100,6 @@ INSTALLED_APPS = [
     'djorm_pgfulltext',
     'rest_framework',
     'tastypie',
-    'api',
     'quotations',
 ]
 

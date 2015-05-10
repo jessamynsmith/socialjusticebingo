@@ -1,4 +1,4 @@
-from underquoted.settings.common import *
+from socialjusticebingo.settings.common import *
 
 import dj_database_url
 import os
@@ -19,7 +19,7 @@ STATIC_ROOT = 'staticfiles'
 
 MEDIA_ROOT = 'media'
 
-ALLOWED_HOSTS = ['underquoted.herokuapp.com']
+ALLOWED_HOSTS = ['socialjusticebingo.herokuapp.com']
 
 INSTALLED_APPS.extend([
     'gunicorn',
