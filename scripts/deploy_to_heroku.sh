@@ -18,6 +18,7 @@ DEPLOY_DATE="$DEPLOY_DATE" \
 
 if [ $CIRCLE ]
 then
+    git fetch origin --unshallow
     git push git@heroku.com:socialjusticebingo.git $CIRCLE_SHA1:refs/heads/master
 else
     git push heroku master
