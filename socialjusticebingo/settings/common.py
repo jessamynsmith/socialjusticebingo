@@ -97,7 +97,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'settings_context_processor',
-    'djorm_pgfulltext',
     'rest_framework',
     'tastypie',
     'quotations',

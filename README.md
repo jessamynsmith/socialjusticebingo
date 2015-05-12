@@ -32,10 +32,6 @@ Use development settings:
     export DJANGO_SETTINGS_MODULE=socialjusticebingo.settings.development
 
 Set up db:
-    
-    In psql:
-    CREATE EXTENSION unaccent;
-    ALTER FUNCTION unaccent(text) IMMUTABLE;
 
     python manage.py syncdb
     python manage.py migrate

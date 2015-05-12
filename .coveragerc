@@ -1,5 +1,5 @@
 [run]
-source = libs, bingo, socialjusticebingo
+source = libs, quotations, socialjusticebingo
 branch = 1
 omit = *tests*
     */migrations/*

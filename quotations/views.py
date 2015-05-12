@@ -9,18 +9,13 @@ from quotations import models as quotation_models, serializers
 from libs import query_set
 
 
-def _search_terms(queryset, terms):
-    for term in terms:
-        queryset = queryset.search(term)
-    return queryset
-
-
 def _search_quotations(search_terms):
-    quotations = quotation_models.Quotation.objects.all()
-    if search_terms:
-        quotation_ids = _search_terms(quotations, search_terms).values_list('id', flat=True)
-        authors = _search_terms(quotation_models.Author.objects.all(), search_terms)
-        quotations = quotations.filter(Q(id__in=quotation_ids) | Q(author__in=authors))
+    quotation_query = Q()
+    author_query = Q()
+    for search_term in search_terms:
+        quotation_query = quotation_query & Q(text__icontains=search_term)
+        author_query = author_query & Q(author__name__icontains=search_term)
+    quotations = quotation_models.Quotation.objects.filter(quotation_query | author_query)
     return quotations
 
 

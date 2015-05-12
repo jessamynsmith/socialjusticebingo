@@ -51,7 +51,7 @@ class QuotationViewSetTest(test.TestCase):
         self.assertEqual('Not I, one said', queryset[0].text)
 
     def test_get_queryset_search_multiple_terms_matches_author(self):
-        self.view_set.request.GET = QueryDict(u'search=Algernon Faith')
+        self.view_set.request.GET = QueryDict(u'search=Algernon&search=Faith')
 
         queryset = self.view_set.get_queryset()
 
@@ -95,6 +95,18 @@ class ViewsTest(test.TestCase):
         self.assertContains(response, '<title>The Underquoted</title>')
         self.assertContains(response, '<div>2b or not 2b</div>', count=0)
         self.assertContains(response, '<div>Faithful to one</div>')
+        self.assertContains(response, '<div>Not I, one said</div>')
+        self.assertContains(response, 'page=1', count=0)
+        self.assertContains(response, 'page=2', count=0)
+
+    def test_list_quotations_search_multiple_terms(self):
+        self.request.GET = QueryDict(u'search_text=algernon faith')
+
+        response = views.list_quotations(self.request)
+
+        self.assertContains(response, '<title>The Underquoted</title>')
+        self.assertContains(response, '<div>2b or not 2b</div>', count=0)
+        self.assertContains(response, '<div>Faithful to one</div>', count=0)
         self.assertContains(response, '<div>Not I, one said</div>')
         self.assertContains(response, 'page=1', count=0)
         self.assertContains(response, 'page=2', count=0)
