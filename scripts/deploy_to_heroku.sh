@@ -27,4 +27,3 @@ fi
 
 heroku run python manage.py syncdb --noinput --app=socialjusticebingo
 heroku run python manage.py migrate --noinput --app=socialjusticebingo
-heroku run python manage.py update_search_field quotations --app=socialjusticebingo
