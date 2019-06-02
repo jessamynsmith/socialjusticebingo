@@ -1,4 +1,4 @@
-Django==1.7.7
+Django==1.8.19
 dj-static==0.0.6
 django-settings-context-processor==0.2
 django-sslify==0.2.7
