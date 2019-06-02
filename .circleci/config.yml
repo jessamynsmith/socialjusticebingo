@@ -42,7 +42,6 @@ jobs:
             - "venv"
       - run:
           command: |
-            npm install
             . venv/bin/activate
             flake8
             coverage run manage.py test --settings=socialjusticebingo.settings.development
